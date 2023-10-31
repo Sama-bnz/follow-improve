@@ -1,17 +1,37 @@
 package com.thomas.followimprove.service;
 
 import com.thomas.followimprove.entities.User;
+import com.thomas.followimprove.entities.dto.UserCreateDto;
+import com.thomas.followimprove.entities.dto.UserDto;
+import com.thomas.followimprove.entities.dto.UserGetDto;
 import com.thomas.followimprove.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
 
     @Autowired
     private IUserRepository userRepository;
+    @Autowired
+    private UserMapperService userMapperService;
 
-    public User create (User user) {
-        return userRepository.save(user);
+
+    public UserGetDto create (UserCreateDto userCreateDto) {
+        //JE CREER UNE INSTANCE DE USER ET J'INITIALISE LES CHAMPS AVEC LA VALEUR DE USERDTO
+        User userCreated =  userRepository.save(userMapperService.mapFromUserCreateDto(userCreateDto));
+        return userMapperService.mapFromUser(userCreated);
     }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User findUserById(int userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+
 }
