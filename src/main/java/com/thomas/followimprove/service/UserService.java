@@ -18,11 +18,13 @@ public class UserService {
     @Autowired
     private UserMapperService userMapperService;
 
+    //Je récupere mon singleton
+    private UserMapperMapStruct userMapperMapStruct = UserMapperMapStruct.INSTANCE;
 
     public UserGetDto create (UserCreateDto userCreateDto) {
         //JE CREER UNE INSTANCE DE USER ET J'INITIALISE LES CHAMPS AVEC LA VALEUR DE USERDTO
-        User userCreated =  userRepository.save(userMapperService.mapFromUserCreateDto(userCreateDto));
-        return userMapperService.mapFromUser(userCreated);
+        User userCreated =  userRepository.save(userMapperMapStruct.userDtoToUser(userCreateDto));
+        return userMapperMapStruct.userToUserGetDto(userCreated);
     }
 
     public List<User> getAllUsers() {
