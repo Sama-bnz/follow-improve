@@ -2,7 +2,6 @@ package com.thomas.followimprove.service;
 
 import com.thomas.followimprove.entities.User;
 import com.thomas.followimprove.entities.dto.UserCreateDto;
-import com.thomas.followimprove.entities.dto.UserDto;
 import com.thomas.followimprove.entities.dto.UserGetDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
