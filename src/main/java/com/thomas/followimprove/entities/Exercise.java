@@ -3,7 +3,7 @@ package com.thomas.followimprove.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity(name= "exercise")
+@Entity(name= "exercises")
 @Data
 public class Exercise {
 
@@ -12,6 +12,6 @@ public class Exercise {
     private int id;
     @Column(name="name")
     private String name;
-    @Column(name="muscle")
-    private String muscle;
+    @Column(name="muscles")
+    private String muscles;
 }

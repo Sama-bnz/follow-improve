@@ -3,8 +3,7 @@ package com.thomas.followimprove.entities.dto;
 import lombok.Data;
 
 @Data
-public class ExerciseDto {
+public class ExerciseGetDto extends ExerciseDto {
 
-    public String name;
-    public String muscles;
+    private int id;
 }

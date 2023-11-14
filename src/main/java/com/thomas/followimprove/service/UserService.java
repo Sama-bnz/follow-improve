@@ -15,8 +15,6 @@ public class UserService {
 
     @Autowired
     private IUserRepository userRepository;
-    @Autowired
-    private UserMapperService userMapperService;
 
     //Je récupere mon singleton
     private UserMapperMapStruct userMapperMapStruct = UserMapperMapStruct.INSTANCE;

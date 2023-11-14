@@ -2,7 +2,6 @@ package com.thomas.followimprove.controller;
 
 import com.thomas.followimprove.entities.User;
 import com.thomas.followimprove.entities.dto.UserCreateDto;
-import com.thomas.followimprove.entities.dto.UserDto;
 import com.thomas.followimprove.entities.dto.UserGetDto;
 import com.thomas.followimprove.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
