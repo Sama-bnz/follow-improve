@@ -3,9 +3,9 @@ package com.thomas.followimprove.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity(name= "exercises")
+@Entity(name ="muscles")
 @Data
-public class Exercise {
+public class Muscle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

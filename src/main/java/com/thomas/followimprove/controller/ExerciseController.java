@@ -1,12 +1,10 @@
 package com.thomas.followimprove.controller;
 
 import com.thomas.followimprove.entities.Exercise;
-import com.thomas.followimprove.entities.User;
 import com.thomas.followimprove.entities.dto.ExerciseDto;
 import com.thomas.followimprove.entities.dto.ExerciseGetDto;
 import com.thomas.followimprove.service.ExerciseMapperMapStruct;
 import com.thomas.followimprove.service.ExerciseService;
-import com.thomas.followimprove.service.UserMapperMapStruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +25,7 @@ public class ExerciseController {
     @PostMapping
     public ResponseEntity<ExerciseGetDto> createExercise(@RequestBody ExerciseDto exerciseDto) {
 
-        if (exerciseDto.getName()== null || exerciseDto.getMuscles() == null) {
+        if (exerciseDto.getName()== null || exerciseDto.getDescription() == null) {
             return ResponseEntity.badRequest().body(null);
         } else {
 
