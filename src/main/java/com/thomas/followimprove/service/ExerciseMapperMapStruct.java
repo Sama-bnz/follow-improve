@@ -12,7 +12,9 @@ public interface ExerciseMapperMapStruct {
     ExerciseMapperMapStruct INSTANCE = Mappers.getMapper(ExerciseMapperMapStruct.class);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "muscles",ignore = true)
     public Exercise exerciseDtoToExercise (ExerciseDto exerciseDto);
+
 
     public ExerciseGetDto exerciceToExerciseGetDto(Exercise exercise);
 

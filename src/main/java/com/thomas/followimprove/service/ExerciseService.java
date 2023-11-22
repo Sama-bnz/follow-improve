@@ -1,26 +1,21 @@
 package com.thomas.followimprove.service;
 
 import com.thomas.followimprove.entities.Exercise;
-import com.thomas.followimprove.entities.Muscle;
 import com.thomas.followimprove.entities.dto.ExerciseDto;
 import com.thomas.followimprove.entities.dto.ExerciseGetDto;
 import com.thomas.followimprove.entities.dto.MuscleGetDto;
 import com.thomas.followimprove.repository.IExerciseRepository;
 import com.thomas.followimprove.repository.IMuscleRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ExerciseService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
     @Autowired
     private IExerciseRepository exerciseRepository;
     @Autowired
@@ -30,10 +25,11 @@ public class ExerciseService {
     @Transactional
     public Exercise createExercise (ExerciseDto exerciseDto) {
         Exercise exercise = exerciseMapperMapStruct.exerciseDtoToExercise(exerciseDto);
+        List<Integer> muscleIds = new ArrayList<>();
         for(MuscleGetDto muscle: exerciseDto.getMuscles()) {
-            Muscle m = muscleRepository.findById(muscle.getId()).get();
-            exercise.addMuscle(m);
+            muscleIds.add(muscle.getId());
         }
+        exercise.setMuscles(muscleRepository.findMuscleWhereIdIN(muscleIds));
         return exerciseRepository.save(exercise);
     }
 

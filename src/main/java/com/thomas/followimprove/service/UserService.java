@@ -2,13 +2,11 @@ package com.thomas.followimprove.service;
 
 import com.thomas.followimprove.entities.User;
 import com.thomas.followimprove.entities.dto.UserCreateDto;
-import com.thomas.followimprove.entities.dto.UserDto;
 import com.thomas.followimprove.entities.dto.UserGetDto;
 import com.thomas.followimprove.repository.IUserRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {

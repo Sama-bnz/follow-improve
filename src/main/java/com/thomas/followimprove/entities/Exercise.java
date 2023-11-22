@@ -1,10 +1,9 @@
 package com.thomas.followimprove.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
 
 @Entity(name= "exercises")
 @Data
@@ -31,7 +30,7 @@ public class Exercise {
 
     public void addMuscle (Muscle muscle) {
         this.muscles.add(muscle);
-        muscle.getExercises().add(this);
+        muscle.add(this);
     }
 
 }

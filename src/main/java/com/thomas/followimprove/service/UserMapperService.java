@@ -4,6 +4,7 @@ import com.thomas.followimprove.entities.User;
 import com.thomas.followimprove.entities.dto.UserCreateDto;
 import com.thomas.followimprove.entities.dto.UserGetDto;
 import org.springframework.stereotype.Service;
+
 @Deprecated
 @Service
 public class UserMapperService {
