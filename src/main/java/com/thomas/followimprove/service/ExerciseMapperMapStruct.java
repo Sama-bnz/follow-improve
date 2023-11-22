@@ -6,7 +6,7 @@ import com.thomas.followimprove.entities.dto.ExerciseGetDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-@Mapper
+@Mapper(uses = MuscleMapper.class)
 public interface ExerciseMapperMapStruct {
 
     ExerciseMapperMapStruct INSTANCE = Mappers.getMapper(ExerciseMapperMapStruct.class);
@@ -16,5 +16,5 @@ public interface ExerciseMapperMapStruct {
 
     public ExerciseGetDto exerciceToExerciseGetDto(Exercise exercise);
 
-    // BESOIN D'UN RAPPEL SUR LE RAPPEL/GET DTO et mapping
+    public ExerciseGetDto mapExerciseToExerciseGetDtoWithMuscles(Exercise exercise);
 }

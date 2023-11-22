@@ -1,0 +1,149 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.logo{
+    height: 100px;
+    margin-top: 10px;
+}
+.upper_section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.upper_page1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
+
+.upper_page2{
+    display: flex;
+    align-items: center;
+}
+
+.logo_log{
+    height: 80px;
+    margin: 0 20px;
+}
+
+.title{
+    margin-left: 50px;
+    color: rgb(221, 0, 49);
+    font-size: 2em;
+}
+
+.work{
+    font-size: 6em;
+    color: rgb(221, 0, 49);
+}
+.improve{
+    font-size: 6em;
+    color: rgb(25, 118, 210);
+}
+.middle_page{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+}
+.button_middle{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 200px;
+    margin: 100px 30px;
+}
+.button_middle1{
+    background-color: rgb(221, 0, 49);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    margin: 20px 100px;
+    font-weight: bold;
+}
+footer{
+    margin-top: auto;
+    height: 50px;
+    background-color: rgb(25, 118, 210);
+    padding: 10px;
+}
+.footer{
+    display: block;
+    text-align: center;
+}
+.img_footer{
+    height: 50px;
+    margin: 0 80px;
+}
+
+.main_title{
+    font-size: 4em;
+    color: rgb(221, 0, 49);
+    text-align: center;
+}
+
+.registration_form{
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 60px;
+    position: relative;
+    text-align: left;
+}
+
+.registration_form input{
+    width: 100%;
+    padding: 20px; /* Ajuste cette valeur pour l'espacement à l'intérieur du champ */
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.registration_form_submit{
+    border: none;
+    background-color: rgb(221, 0, 49);
+    color: white;
+    max-width: 20%;
+    margin-left: auto;
+   display: block;
+   margin-top: 10px;
+}
+
+.log_in_form{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 60px;
+    position: relative;
+    text-align: left;
+}
+.log_in_form input{
+    width: 100%;
+    padding: 20px; /* Ajuste cette valeur pour l'espacement à l'intérieur du champ */
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+.log_in_form_submit{
+    border: none;
+    background-color: rgb(221, 0, 49);
+    color: white;
+    max-width: 20%;
+    margin-left: auto;
+   display: block;
+   margin-top: 10px;
+}
+
+.select_road{
+    display: flex;
+    justify-content: space-between;
+}
+.select_road a{
+    margin: 0 200px;
+}
+.select_road img{
+    height: 500px;
+}
+.exo{
+    height: 100px;
+}

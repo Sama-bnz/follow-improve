@@ -48,6 +48,6 @@ public class ExerciseService {
     public ExerciseGetDto findExerciseById(int exerciseId) {
 
         Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
-        return exerciseMapperMapStruct.exerciceToExerciseGetDto(exercise);
+        return exerciseMapperMapStruct.mapExerciseToExerciseGetDtoWithMuscles(exercise);
     }
 }

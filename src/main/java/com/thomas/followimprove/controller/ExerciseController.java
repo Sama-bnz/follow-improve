@@ -18,29 +18,35 @@ import java.util.List;
 @RequestMapping("/exercises")
 public class ExerciseController {
 
+    // Injection de dépendance pour le service Exercise
     @Autowired
     private ExerciseService exerciseService;
 
+    // Instance du mapper MapStruct
     private ExerciseMapperMapStruct exerciseMapperMapStruct = ExerciseMapperMapStruct.INSTANCE;
+    //Endpoint pour créer un exercice
     @PostMapping
     public ResponseEntity<ExerciseGetDto> createExercise(@RequestBody ExerciseDto exerciseDto) {
 
+        // Vérification des paramètres de la requête
         if (exerciseDto.getName()== null || exerciseDto.getDescription() == null) {
             return ResponseEntity.badRequest().body(null);
         } else {
-
+            // Création de l'exercice via le service
             Exercise createExercise = exerciseService.createExercise(exerciseDto);
+            // Mapping de l'entité Exercise vers ExerciseGetDto
             ExerciseGetDto exerciseGetDto = exerciseMapperMapStruct.exerciceToExerciseGetDto(createExercise);
+            // Retourne une réponse avec le statut CREATED et le DTO de l'exercice créé
             return ResponseEntity.status(HttpStatus.CREATED).body(exerciseGetDto);
         }
     }
-
+    // Endpoint pour obtenir tous les exercices
     @GetMapping
     public ResponseEntity<List<ExerciseGetDto>> getAllExercises() {
         List<ExerciseGetDto> exerciseGetDtos = exerciseService.getAllExercises();
         return ResponseEntity.ok(exerciseGetDtos);
     }
-
+    // Endpoint pour obtenir un exercice par son ID
     @GetMapping("/{id}")
     public ResponseEntity<ExerciseGetDto> getExerciseById(@PathVariable int id) {
         ExerciseGetDto exerciseGetDto = exerciseService.findExerciseById(id);
