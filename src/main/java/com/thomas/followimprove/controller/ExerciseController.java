@@ -63,7 +63,17 @@ public class ExerciseController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ExerciseGetDto> updateExercise(@PathVariable int id,@RequestBody ExerciseDto exerciseDto){
+        Exercise exercise = exerciseService.updateExercise(id, exerciseDto);
 
+        if(exercise != null) {
+            ExerciseGetDto exerciseGetDto = exerciseMapperMapStruct.exerciceToExerciseGetDto(exercise);
+            return ResponseEntity.ok(exerciseGetDto);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }

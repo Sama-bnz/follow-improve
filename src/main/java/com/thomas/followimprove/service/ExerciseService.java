@@ -53,9 +53,25 @@ public class ExerciseService {
         exerciseRepository.delete(exercise);
     }
 
-    public void updateExercise ( int exerciseId) {
+    public Exercise updateExercise ( int exerciseId, ExerciseDto exerciseDto) {
 
         Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
-        exerciseRepository.save(exercise);
+
+        if (exercise != null){
+
+            exercise.setName(exerciseDto.getName());
+            exercise.setDescription(exerciseDto.getDescription());
+
+            List<Integer> muscles = new ArrayList<>();
+            for (MuscleGetDto muscleGetDto : exerciseDto.getMuscles()){
+                muscles.add(muscleGetDto.getId());
+            }
+            exercise.setMuscles(muscleRepository.findMuscleWhereIdIN(muscles));
+
+            return exerciseRepository.save(exercise);
+        } else {
+            return null;
+        }
+
     }
 }
