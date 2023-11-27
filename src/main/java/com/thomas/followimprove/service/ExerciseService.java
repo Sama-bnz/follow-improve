@@ -46,4 +46,16 @@ public class ExerciseService {
         Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
         return exerciseMapperMapStruct.mapExerciseToExerciseGetDtoWithMuscles(exercise);
     }
+
+    public void deleteExercise (int exerciseId) {
+
+        Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
+        exerciseRepository.delete(exercise);
+    }
+
+    public void updateExercise ( int exerciseId) {
+
+        Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
+        exerciseRepository.save(exercise);
+    }
 }

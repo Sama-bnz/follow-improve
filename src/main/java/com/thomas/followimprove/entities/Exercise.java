@@ -33,4 +33,7 @@ public class Exercise {
         muscle.add(this);
     }
 
+    public void deleteMuscle () {
+        this.muscles.clear();
+    }
 }

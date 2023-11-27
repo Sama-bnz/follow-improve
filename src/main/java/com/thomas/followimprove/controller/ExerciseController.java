@@ -56,4 +56,14 @@ public class ExerciseController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExerciseById(@PathVariable int id) {
+         exerciseService.deleteExercise(id);
+         return  ResponseEntity.noContent().build();
+
+    }
+
+
+
+
 }
