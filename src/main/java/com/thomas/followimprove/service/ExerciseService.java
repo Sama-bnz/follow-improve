@@ -53,6 +53,7 @@ public class ExerciseService {
         exerciseRepository.delete(exercise);
     }
 
+    //Optimisation des instructions pour l'ajout/retrait des muscles
     public Exercise updateExercise ( int exerciseId, ExerciseDto exerciseDto) {
 
         Exercise exercise = exerciseRepository.findById(exerciseId).orElse(null);
