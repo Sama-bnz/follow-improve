@@ -17,6 +17,7 @@ Cette application est destinée à tout utilisateur (débutant/intermédiaire/ex
  - Spring-boot : 3.1.5
  - Jdk : 20
  - Mapstruct : 1.5.5.Final
+ - Flyway
  
  ## Frontend
  - Angular : 17

@@ -32,8 +32,10 @@ public class UserController {
                 || userCreateDto.getPassword() == null) {
             return ResponseEntity.badRequest().body(null);
         } else {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
-
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            if(userService.findByEmail(userCreateDto.getEmail() )!= null || userService.findByLogin(userCreateDto.getLogin())!= null) {
+                return ResponseEntity.badRequest().body(null);
+            }
             try {
                 // Convertir la date de naissance en LocalDate
                 LocalDate dateOfBirthday = LocalDate.parse(userCreateDto.getDateOfBirthday(), formatter);
@@ -48,7 +50,7 @@ public class UserController {
                 }
             } catch (DateTimeParseException e) {
                 // Gère l'erreur d'analyse de la date ici
-                return ResponseEntity.badRequest().body(null);
+                return ResponseEntity.internalServerError().body(null);
             }
         }
     }
