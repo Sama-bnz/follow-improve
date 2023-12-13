@@ -16,5 +16,7 @@ spring:
     sql-migration-suffix: .sql
     group: true
     location: classpath:db/migration
-
+FollowImprove:
+  jwtSecret: xhxhh137373uddjshkjqshfkjqhkfhilieufizefhiu
+  jwtExpirationMs: 86400000
 
