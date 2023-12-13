@@ -15,7 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -33,6 +34,10 @@ public class UserController {
             return ResponseEntity.badRequest().body(null);
         } else {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            // NEED TO BE REVIEW
+           // if(!Utils.checkEmailIsValid(userCreateDto.getEmail())) {
+             //   return ResponseEntity.badRequest().body(null);
+            //}
             if(userService.findByEmail(userCreateDto.getEmail() )!= null || userService.findByLogin(userCreateDto.getLogin())!= null) {
                 return ResponseEntity.badRequest().body(null);
             }
