@@ -21,6 +21,7 @@ public class UserService {
     private UserMapperMapStruct userMapperMapStruct = UserMapperMapStruct.INSTANCE;
     @Autowired
     private PasswordEncoder encoder;
+    @Autowired
     private IRolesRepository rolesRepository;
 
 
