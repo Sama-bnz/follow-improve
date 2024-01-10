@@ -25,10 +25,9 @@ public class UserController {
     private UserService userService;
 
 
-    @PostMapping
+
+    @PostMapping(value = "/register")
     public ResponseEntity<UserGetDto> create(@RequestBody UserCreateDto userCreateDto) {
-
-
         if (userCreateDto.getFirstName() == null || userCreateDto.getLastName() == null || userCreateDto.getLogin() == null
                 || userCreateDto.getPassword() == null) {
             return ResponseEntity.badRequest().body(null);
@@ -60,7 +59,7 @@ public class UserController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
